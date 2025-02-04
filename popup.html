@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            width: 300px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button#disableProxy {
+            background: #f44336;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Latiao's Simple Chrome Proxy</h1>
+    <div class="input-group">
+        <select id="proxyType">
+            <option value="http">HTTP</option>
+            <option value="https">HTTPS</option>
+            <option value="socks4">SOCKS4</option>
+            <option value="socks5">SOCKS5</option>
+            <option value="quic">QUIC</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <input type="text" id="proxyHost" placeholder="Proxy Host (e.g. 127.0.0.1)">
+    </div>
+
+    <div class="input-group">
+        <input type="number" id="proxyPort" placeholder="Proxy Port (e.g. 1080)">
+    </div>
+
+    <button id="enableProxy">START</button>
+    <button id="disableProxy">DISABLER</button>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

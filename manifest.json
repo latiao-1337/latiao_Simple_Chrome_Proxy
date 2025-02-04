@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Latiao_Simple_Chrome_Proxy",
+    "version": "1",
+    "description": "http/https SOCKS4/5 and quic Proxy",
+    "permissions": [
+        "proxy",
+        "storage",
+        "notifications"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    }
+}
