@@ -1,7 +1,7 @@
 # latiao_Simple_Chrome_Proxy
-http/https SOCKS4/5 and quic Proxy for Chrome
+http/https SOCKS4/5 and quic Proxy plugins for Chrome
 
-Chrome 的 http/https SOCKS4/5 和 quic 代理
+Chrome 的 http/https SOCKS4/5 和 quic 代理插件
 
 You can contact me via the following methods
 
