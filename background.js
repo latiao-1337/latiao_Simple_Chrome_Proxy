@@ -1,41 +1,14 @@
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === 'applyProxy') {
-        chrome.proxy.settings.set(
-            { value: message.config, scope: 'regular' },
-            () => chrome.notifications.create({
-                type: 'basic',
-                title: 'Start',
-                message: 'Proxt is enabled'
-            })
-        );
-    } else if (message.action === 'disableProxy') {
-        chrome.proxy.settings.set(
-            { value: { mode: "direct" }, scope: 'regular' },
-            () => chrome.notifications.create({
-                type: 'basic',
-                title: 'Stop',
-                message: 'Proxy is disabled'
-            })
-        );
+chrome.runtime.onMessage.addListener(({ action, config }) => {
+    const notify = title => chrome.notifications.create({ type: 'basic', title });
+    if (action === 'apply') {
+        chrome.proxy.settings.set({ value: config, scope: 'regular' }, () => notify('Proxy Enabled'));
+    } else if (action === 'clear') {
+        chrome.proxy.settings.set({ value: { mode: 'direct' }, scope: 'regular' }, () => notify('Proxy Disabled'));
     }
 });
 
-
-chrome.storage.local.get(['proxySettings'], (result) => {
-    if (result.proxySettings) {
-        const settings = result.proxySettings;
-        chrome.proxy.settings.set({
-            value: {
-                mode: "fixed_servers",
-                rules: {
-                    singleProxy: {
-                        scheme: settings.type,
-                        host: settings.host,
-                        port: settings.port
-                    },
-                }
-            },
-            scope: 'regular'
-        });
+chrome.storage.local.get('proxy', ({ proxy }) => {
+    if (proxy) {
+        chrome.proxy.settings.set({ value: proxy, scope: 'regular' });
     }
 });

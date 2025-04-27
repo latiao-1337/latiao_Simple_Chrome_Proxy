@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Latiao_Simple_Chrome_Proxy",
-    "version": "1",
-    "description": "http/https SOCKS4/5 and quic Proxy",
+    "name": "Latiao Simple Proxy",
+    "version": "1.0",
+    "description": "支持 HTTP/HTTPS/SOCKS4/5/QUIC 代理",
     "permissions": [
         "proxy",
         "storage",
