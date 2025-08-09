@@ -40,11 +40,29 @@
             background: #f44336;
             color: #fff;
         }
+
+        .status {
+            margin: 10px 0;
+            padding: 6px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .status-enabled {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .status-disabled {
+            background-color: #ffebee;
+            color: #c62828;
+        }
     </style>
 </head>
 
 <body>
     <h2>代理设置</h2>
+    <div class="status status-disabled" id="status">当前状态：未启用代理</div>
     <div class="field">
         <select id="type">
             <option value="http">HTTP</option>
