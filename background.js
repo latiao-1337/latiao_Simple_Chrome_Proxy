@@ -1,9 +1,8 @@
 chrome.runtime.onMessage.addListener(({ action, config }) => {
-    const notify = title => chrome.notifications.create({ type: 'basic', title });
     if (action === 'apply') {
-        chrome.proxy.settings.set({ value: config, scope: 'regular' }, () => notify('Proxy Enabled'));
+        chrome.proxy.settings.set({ value: config, scope: 'regular' });
     } else if (action === 'clear') {
-        chrome.proxy.settings.set({ value: { mode: 'direct' }, scope: 'regular' }, () => notify('Proxy Disabled'));
+        chrome.proxy.settings.clear({ scope: 'regular' });
     }
 });
 

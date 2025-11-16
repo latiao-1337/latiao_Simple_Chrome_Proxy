@@ -57,13 +57,25 @@
             background-color: #ffebee;
             color: #c62828;
         }
+
+        #pac-field {
+            display: none;
+        }
     </style>
 </head>
 
 <body>
     <h2>代理设置</h2>
     <div class="status status-disabled" id="status">当前状态：未启用代理</div>
+
     <div class="field">
+        <select id="mode">
+            <option value="fixed_servers">固定代理</option>
+            <option value="pac_script">PAC脚本</option>
+        </select>
+    </div>
+
+    <div class="field" id="fixed-field">
         <select id="type">
             <option value="http">HTTP</option>
             <option value="https">HTTPS</option>
@@ -72,8 +84,13 @@
             <option value="quic">QUIC</option>
         </select>
     </div>
-    <div class="field"><input id="host" placeholder="主机 (例如 127.0.0.1)"></div>
-    <div class="field"><input id="port" type="number" placeholder="端口 (例如 1080)"></div>
+    <div class="field" id="fixed-field-host"><input id="host" placeholder="主机 (例如 127.0.0.1)"></div>
+    <div class="field" id="fixed-field-port"><input id="port" type="number" placeholder="端口 (例如 1080)"></div>
+
+    <div class="field" id="pac-field">
+        <input id="pac" placeholder="PAC地址 (例如 https://example.com/proxy.pac)">
+    </div>
+
     <button id="enable">启用代理</button>
     <button id="disable">禁用代理</button>
     <script src="popup.js"></script>
